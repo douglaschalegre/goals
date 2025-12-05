@@ -5,14 +5,7 @@ import { useRouter } from "next/navigation";
 import { GoalsProvider, useGoals } from "@/lib/goals-context";
 import { GoalModal } from "@/components/kanban/GoalModal";
 import { CATEGORIES } from "@/components/shared/CategoryPicker";
-import {
-  Goal,
-  Home,
-  BarChart3,
-  Settings,
-  Plus,
-  CreditCard,
-} from "lucide-react";
+import { Goal, Plus } from "lucide-react";
 import Image from "next/image";
 import type { IGoal } from "@/types/goals";
 import { getIconComponent } from "@/components/shared/IconPicker";
