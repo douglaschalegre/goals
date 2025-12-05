@@ -1,8 +1,19 @@
+"use client";
+
+import { useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import BottomNav from "@/components/ui/BottomNav";
 
 export default function SuccessPage() {
+  useEffect(() => {
+    // Clear local storage after successful payment
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("goals-kanban-data");
+      localStorage.removeItem("goals-canvas-data");
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50 to-white flex items-center justify-center p-6 pb-24">
       <div className="max-w-2xl mx-auto text-center space-y-8">
