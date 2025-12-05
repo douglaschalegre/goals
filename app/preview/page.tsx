@@ -6,6 +6,7 @@ import { GoalsProvider, useGoals } from "@/lib/goals-context";
 import PreviewBoard from "@/components/preview/PreviewBoard";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { Button } from "@/components/ui/button";
+import { ChevronLeft } from "lucide-react";
 import BottomNav from "@/components/ui/BottomNav";
 // Export features removed
 
@@ -48,17 +49,21 @@ function PreviewPageContent() {
 
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark">
-      <header className="sticky top-0 z-10 bg-background-light/80 px-6 py-4 backdrop-blur-sm dark:bg-background-dark/80 border-b border-zinc-200 dark:border-zinc-800">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div>
-            <h1 className="text-2xl font-bold">Prévia &amp; Pagamento</h1>
-            <p className="text-sm text-muted-foreground">
-              Revise suas metas e envie para recebê-las em um ano
-            </p>
+      <header className="sticky top-0 z-10 bg-background-light/80 px-4 py-3 backdrop-blur-sm dark:bg-background-dark/80 border-b border-zinc-200 dark:border-zinc-800">
+        <div className="max-w-7xl mx-auto grid grid-cols-3 items-center">
+          <div className="flex h-12 w-12 items-center justify-start">
+            <button
+              aria-label="Voltar"
+              className="flex h-10 w-10 items-center justify-center rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800"
+              onClick={() => router.push("/create")}
+            >
+              <ChevronLeft className="h-6 w-6 text-zinc-900 dark:text-white" />
+            </button>
           </div>
-          <Button variant="outline" onClick={() => router.push("/create")}>
-            Voltar
-          </Button>
+          <h1 className="text-center text-lg font-bold tracking-tight text-zinc-900 dark:text-white">
+            Prévia &amp; Pagamento
+          </h1>
+          <div className="flex h-12 w-12 items-center justify-end" />
         </div>
       </header>
 
