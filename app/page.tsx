@@ -89,74 +89,62 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="p-6 rounded-lg border bg-card hover:shadow-lg transition-shadow">
-              <div className="text-3xl mb-3">📷</div>
-              <h3 className="text-lg font-semibold mb-2">Upload de Imagens</h3>
-              <p className="text-sm text-muted-foreground">
-                Carregue imagens inspiradoras para visualizar suas metas
-              </p>
-            </div>
-
-            <div className="p-6 rounded-lg border bg-card hover:shadow-lg transition-shadow">
-              <div className="text-3xl mb-3">✍️</div>
-              <h3 className="text-lg font-semibold mb-2">Metas em Texto</h3>
-              <p className="text-sm text-muted-foreground">
-                Adicione blocos de texto com suas metas específicas e acionáveis
-              </p>
-            </div>
-
-            <div className="p-6 rounded-lg border bg-card hover:shadow-lg transition-shadow">
-              <div className="text-3xl mb-3">🏷️</div>
-              <h3 className="text-lg font-semibold mb-2">Categorias</h3>
-              <p className="text-sm text-muted-foreground">
-                Organize por saúde, carreira, relacionamentos e mais
-              </p>
-            </div>
-
-            <div className="p-6 rounded-lg border bg-card hover:shadow-lg transition-shadow">
-              <div className="text-3xl mb-3">💾</div>
+              <div className="text-3xl mb-3">🎯</div>
               <h3 className="text-lg font-semibold mb-2">
-                Salvamento Automático
+                Visualização Comprovada
               </h3>
               <p className="text-sm text-muted-foreground">
-                Seu trabalho é salvo automaticamente enquanto você cria
+                Use o poder da visualização para tornar seus objetivos mais
+                reais e alcançáveis
               </p>
             </div>
 
             <div className="p-6 rounded-lg border bg-card hover:shadow-lg transition-shadow">
-              <div className="text-3xl mb-3">📥</div>
-              <h3 className="text-lg font-semibold mb-2">Exportação</h3>
-              <p className="text-sm text-muted-foreground">
-                Baixe seu Quadro de metas como PNG ou PDF
-              </p>
-            </div>
-
-            <div className="p-6 rounded-lg border bg-card hover:shadow-lg transition-shadow">
-              <div className="text-3xl mb-3">📧</div>
+              <div className="text-3xl mb-3">🧭</div>
               <h3 className="text-lg font-semibold mb-2">
-                Lembrete por E-mail
+                Planejamento por Áreas
               </h3>
               <p className="text-sm text-muted-foreground">
-                Receba suas metas de volta exatamente um ano depois
+                Organize suas metas por saúde, carreira, finanças,
+                relacionamentos e desenvolvimento pessoal
+              </p>
+            </div>
+
+            <div className="p-6 rounded-lg border bg-card hover:shadow-lg transition-shadow">
+              <div className="text-3xl mb-3">⏰</div>
+              <h3 className="text-lg font-semibold mb-2">Cápsula do Tempo</h3>
+              <p className="text-sm text-muted-foreground">
+                Receba suas metas exatamente um ano depois e veja o quanto você
+                evoluiu
+              </p>
+            </div>
+
+            <div className="p-6 rounded-lg border bg-card hover:shadow-lg transition-shadow">
+              <div className="text-3xl mb-3">💡</div>
+              <h3 className="text-lg font-semibold mb-2">Reflexão Guiada</h3>
+              <p className="text-sm text-muted-foreground">
+                Compare suas metas com suas conquistas e celebre seu crescimento
+                pessoal
+              </p>
+            </div>
+
+            <div className="p-6 rounded-lg border bg-card hover:shadow-lg transition-shadow">
+              <div className="text-3xl mb-3">🖼️</div>
+              <h3 className="text-lg font-semibold mb-2">
+                Quadro Personalizado
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Crie um quadro único com imagens inspiradoras e metas
+                específicas para sua jornada
               </p>
             </div>
 
             <div className="p-6 rounded-lg border bg-card hover:shadow-lg transition-shadow">
               <div className="text-3xl mb-3">🔒</div>
-              <h3 className="text-lg font-semibold mb-2">
-                Armazenamento Seguro
-              </h3>
+              <h3 className="text-lg font-semibold mb-2">Privacidade Total</h3>
               <p className="text-sm text-muted-foreground">
-                Seus dados são criptografados e armazenados com segurança
-              </p>
-            </div>
-
-            <div className="p-6 rounded-lg border bg-card hover:shadow-lg transition-shadow">
-              <div className="text-3xl mb-3">📱</div>
-              <h3 className="text-lg font-semibold mb-2">
-                Compatível com Celular
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                Crie seu Quadro de metas em qualquer dispositivo
+                Seus sonhos e metas são pessoais. Armazenamento criptografado e
+                100% privado
               </p>
             </div>
           </div>

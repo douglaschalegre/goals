@@ -17,7 +17,8 @@ export default function BottomNav() {
 
   // Determine current step
   const getCurrentStep = () => {
-    if (pathname === "/" || pathname === "/create") return 1;
+    if (pathname === "/") return 0;
+    if (pathname === "/create") return 1;
     if (pathname === "/preview") return 2;
     if (pathname.startsWith("/payment/")) return 3;
     if (pathname === "/success") return 4;
@@ -40,14 +41,20 @@ export default function BottomNav() {
         {/* Home */}
         <button
           className={`flex flex-col items-center gap-1 px-2 ${
-            pathname === "/"
+            currentStep > 0 || pathname === "/"
               ? "text-primary"
               : "text-zinc-400 dark:text-zinc-500"
           }`}
           onClick={() => router.push("/")}
         >
-          <House className="text-2xl" />
-          <p className={`text-xs ${pathname === "/" ? "font-bold" : ""}`}>
+          {currentStep > 0 ? (
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-white">
+              <Check className="h-5 w-5" />
+            </div>
+          ) : (
+            <House className="text-2xl" />
+          )}
+          <p className={`text-xs ${pathname === "/" || currentStep > 0 ? "font-bold" : ""}`}>
             Início
           </p>
         </button>
