@@ -7,12 +7,7 @@ import { ContactForm } from "@/components/forms/ContactForm";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft } from "lucide-react";
 import BottomNav from "@/components/ui/BottomNav";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+// Using a lightweight custom modal to avoid hydration issues
 // Export features removed
 
 function PreviewPageContent() {
@@ -187,11 +182,21 @@ function PreviewPageContent() {
         </Button>
       </div>
 
-      <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
-        <DialogContent className="bg-transparent border-0">
-          <ContactForm onSubmit={handleSubmit} isSubmitting={isSubmitting} />
-        </DialogContent>
-      </Dialog>
+      {isContactOpen && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 flex items-center justify-center"
+        >
+          <div
+            className="absolute inset-0 bg-black/40"
+            onClick={() => setIsContactOpen(false)}
+          />
+          <div className="relative z-10 w-full max-w-md rounded-xl  bg-transparent p-4">
+            <ContactForm onSubmit={handleSubmit} isSubmitting={isSubmitting} />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
