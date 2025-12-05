@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import BottomNav from "@/components/ui/BottomNav";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <main className="min-h-screen bg-gradient-to-b from-white to-gray-50 pb-20">
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-6 py-20 md:py-32">
         <div className="text-center space-y-8">
@@ -187,6 +188,7 @@ export default function Home() {
           </p>
         </div>
       </footer>
+      <BottomNav />
     </main>
   );
 }

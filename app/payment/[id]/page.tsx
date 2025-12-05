@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { PaymentQRCode } from "@/components/payment/PaymentQRCode";
 import { Button } from "@/components/ui/button";
+import BottomNav from "@/components/ui/BottomNav";
 
 interface PaymentData {
   qrCode: string;
@@ -13,7 +14,11 @@ interface PaymentData {
   paymentId: string;
 }
 
-export default function PaymentPage({ params }: { params: Promise<{ id: string }> }) {
+export default function PaymentPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
   const router = useRouter();
   const [paymentData, setPaymentData] = useState<PaymentData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -54,7 +59,9 @@ export default function PaymentPage({ params }: { params: Promise<{ id: string }
 
     setIsCheckingPayment(true);
     try {
-      const response = await fetch(`/api/payment/status?paymentId=${paymentData.paymentId}`);
+      const response = await fetch(
+        `/api/payment/status?paymentId=${paymentData.paymentId}`
+      );
 
       if (!response.ok) {
         throw new Error("Failed to check payment status");
@@ -65,11 +72,15 @@ export default function PaymentPage({ params }: { params: Promise<{ id: string }
       if (paid) {
         router.push("/success");
       } else {
-        alert("Pagamento ainda não recebido. Por favor, complete o pagamento e tente novamente.");
+        alert(
+          "Pagamento ainda não recebido. Por favor, complete o pagamento e tente novamente."
+        );
       }
     } catch (err) {
       console.error("Payment status check error:", err);
-      alert("Falha ao verificar status do pagamento. Por favor, tente novamente.");
+      alert(
+        "Falha ao verificar status do pagamento. Por favor, tente novamente."
+      );
     } finally {
       setIsCheckingPayment(false);
     }
@@ -90,7 +101,9 @@ export default function PaymentPage({ params }: { params: Promise<{ id: string }
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="max-w-md mx-auto p-6">
           <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-center">
-            <p className="text-red-800 mb-4">{error || "Dados de pagamento não disponíveis"}</p>
+            <p className="text-red-800 mb-4">
+              {error || "Dados de pagamento não disponíveis"}
+            </p>
             <Button onClick={createPayment}>Tentar Novamente</Button>
           </div>
         </div>
@@ -99,7 +112,7 @@ export default function PaymentPage({ params }: { params: Promise<{ id: string }
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 pb-24">
       <header className="bg-white border-b border-gray-200 px-6 py-4">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-2xl font-bold">Pagamento</h1>
@@ -136,6 +149,7 @@ export default function PaymentPage({ params }: { params: Promise<{ id: string }
           </Button>
         </div>
       </div>
+      <BottomNav />
     </div>
   );
 }
