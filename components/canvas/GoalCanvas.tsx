@@ -37,8 +37,8 @@ export function GoalCanvas({ readonly = false }: GoalCanvasProps) {
       {elements.length === 0 && !readonly && (
         <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
           <div className="text-center">
-            <p className="text-lg mb-2">Your canvas is empty</p>
-            <p className="text-sm">Add images or text to start creating your vision board</p>
+            <p className="text-lg mb-2">Seu canvas está vazio</p>
+            <p className="text-sm">Adicione imagens ou textos para começar a criar seu quadro de visão</p>
           </div>
         </div>
       )}

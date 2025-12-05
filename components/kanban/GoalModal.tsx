@@ -202,7 +202,7 @@ export function GoalModal({ isOpen, onClose, goal }: GoalModalProps) {
                 <div className="relative w-full h-48 rounded-lg overflow-hidden">
                   <Image
                     src={imageUrl}
-                    alt="Goal cover"
+                    alt="Capa da meta"
                     fill
                     sizes="(max-width: 768px) 100vw, 600px"
                     className="object-cover"

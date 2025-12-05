@@ -152,7 +152,7 @@ export default function Home() {
 
             <div className="p-6 rounded-lg border bg-card hover:shadow-lg transition-shadow">
               <div className="text-3xl mb-3">📱</div>
-              <h3 className="text-lg font-semibold mb-2">Mobile Friendly</h3>
+              <h3 className="text-lg font-semibold mb-2">Compatível com Celular</h3>
               <p className="text-sm text-muted-foreground">
                 Crie seu Quadro de metas em qualquer dispositivo
               </p>

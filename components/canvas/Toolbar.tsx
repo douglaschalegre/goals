@@ -51,7 +51,7 @@ export function Toolbar() {
       setSelectedCategory(undefined);
     } catch (error) {
       console.error("Failed to upload image:", error);
-      toast.error("Failed to upload image. Please try again.");
+      toast.error("Falha ao enviar imagem. Por favor, tente novamente.");
     } finally {
       setIsUploading(false);
       if (fileInputRef.current) {
@@ -76,26 +76,26 @@ export function Toolbar() {
         <Dialog open={showImageDialog} onOpenChange={setShowImageDialog}>
           <DialogTrigger asChild>
             <Button variant="default">
-              📷 Add Image
+              📷 Adicionar Imagem
             </Button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-[600px]">
             <DialogHeader>
-              <DialogTitle>Add Image to Canvas</DialogTitle>
+              <DialogTitle>Adicionar Imagem ao Canvas</DialogTitle>
               <DialogDescription>
-                Upload an image and optionally assign a category
+                Envie uma imagem e opcionalmente atribua uma categoria
               </DialogDescription>
             </DialogHeader>
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium mb-2">Category (optional)</label>
+                <label className="block text-sm font-medium mb-2">Categoria (opcional)</label>
                 <CategoryPicker
                   selectedCategory={selectedCategory}
                   onSelect={setSelectedCategory}
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-2">Upload Image</label>
+                <label className="block text-sm font-medium mb-2">Enviar Imagem</label>
                 <Input
                   ref={fileInputRef}
                   type="file"
@@ -104,7 +104,7 @@ export function Toolbar() {
                   disabled={isUploading}
                 />
                 {isUploading && (
-                  <p className="text-sm text-muted-foreground mt-2">Uploading...</p>
+                  <p className="text-sm text-muted-foreground mt-2">Enviando...</p>
                 )}
               </div>
             </div>
@@ -115,30 +115,30 @@ export function Toolbar() {
         <Dialog open={showTextDialog} onOpenChange={setShowTextDialog}>
           <DialogTrigger asChild>
             <Button variant="default">
-              📝 Add Text
+              📝 Adicionar Texto
             </Button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-[600px]">
             <DialogHeader>
-              <DialogTitle>Add Text to Canvas</DialogTitle>
+              <DialogTitle>Adicionar Texto ao Canvas</DialogTitle>
               <DialogDescription>
-                Enter your goal text and optionally assign a category
+                Digite o texto da sua meta e opcionalmente atribua uma categoria
               </DialogDescription>
             </DialogHeader>
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium mb-2">Category (optional)</label>
+                <label className="block text-sm font-medium mb-2">Categoria (opcional)</label>
                 <CategoryPicker
                   selectedCategory={selectedCategory}
                   onSelect={setSelectedCategory}
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-2">Text Content</label>
+                <label className="block text-sm font-medium mb-2">Conteúdo do Texto</label>
                 <textarea
                   value={textContent}
                   onChange={(e) => setTextContent(e.target.value)}
-                  placeholder="Enter your goal..."
+                  placeholder="Digite sua meta..."
                   className="w-full min-h-[100px] p-3 border rounded-md resize-none"
                   onKeyDown={(e) => {
                     if (e.key === "Enter" && e.ctrlKey) {
@@ -147,11 +147,11 @@ export function Toolbar() {
                   }}
                 />
                 <p className="text-xs text-muted-foreground mt-1">
-                  Press Ctrl+Enter to add
+                  Pressione Ctrl+Enter para adicionar
                 </p>
               </div>
               <Button onClick={handleAddText} disabled={!textContent.trim()}>
-                Add to Canvas
+                Adicionar ao Canvas
               </Button>
             </div>
           </DialogContent>
@@ -159,7 +159,7 @@ export function Toolbar() {
       </div>
 
       <div className="text-xs text-muted-foreground">
-        💡 Tip: Double-click text to edit, drag elements to move, use resize handles on images
+        💡 Dica: Clique duas vezes no texto para editar, arraste elementos para mover, use alças de redimensionamento nas imagens
       </div>
     </div>
   );

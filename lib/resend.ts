@@ -11,7 +11,7 @@ export async function sendGoalsReminderEmail(
     const { data, error } = await resend.emails.send({
       from: process.env.RESEND_FROM_EMAIL || "noreply@yourdomain.com",
       to: [to],
-      subject: "🎯 Your Goals from One Year Ago",
+      subject: "🎯 Suas Metas de Um Ano Atrás",
       html: `
         <!DOCTYPE html>
         <html>
@@ -73,52 +73,52 @@ export async function sendGoalsReminderEmail(
           </head>
           <body>
             <div class="header">
-              <h1>🎯 Time to Reflect!</h1>
-              <p>One year ago, you set these goals...</p>
+              <h1>🎯 Hora de Refletir!</h1>
+              <p>Um ano atrás, você definiu essas metas...</p>
             </div>
 
             <div class="content">
-              <p><strong>${name ? `Hi ${name},` : "Hello!"}</strong></p>
+              <p><strong>${name ? `Olá ${name},` : "Olá!"}</strong></p>
 
               <p>
-                A year ago today, you took the time to visualize your goals and dreams.
-                You created a vision board to guide your journey over the past year.
+                Há um ano atrás, você dedicou tempo para visualizar suas metas e sonhos.
+                Você criou um quadro de visão para guiar sua jornada ao longo do último ano.
               </p>
 
-              <p><strong>Here's your vision board from one year ago:</strong></p>
+              <p><strong>Aqui está seu quadro de visão de um ano atrás:</strong></p>
 
-              <img src="${goalsImageUrl}" alt="Your Goals Vision Board" class="goals-image" />
+              <img src="${goalsImageUrl}" alt="Seu Quadro de Metas" class="goals-image" />
 
               <div class="reflection">
-                <h3>Take a moment to reflect:</h3>
+                <h3>Reserve um momento para refletir:</h3>
                 <ul>
-                  <li>Which goals did you achieve?</li>
-                  <li>What surprised you about your journey?</li>
-                  <li>How have you grown over the past year?</li>
-                  <li>What would you tell your past self?</li>
+                  <li>Quais metas você conquistou?</li>
+                  <li>O que te surpreendeu em sua jornada?</li>
+                  <li>Como você cresceu ao longo do último ano?</li>
+                  <li>O que você diria para seu eu do passado?</li>
                 </ul>
               </div>
 
               <p>
-                Whether you achieved everything you set out to do or your path took an
-                unexpected turn, remember that growth isn't always linear. Every step
-                forward counts, and you've made it this far!
+                Seja você tendo conquistado tudo o que se propôs a fazer ou seu caminho tendo tomado um
+                rumo inesperado, lembre-se de que o crescimento nem sempre é linear. Cada passo
+                à frente conta, e você chegou até aqui!
               </p>
 
               <p>
-                <strong>What's next?</strong> Consider creating a new vision board for
-                the year ahead, building on your experiences and dreaming even bigger.
+                <strong>E agora?</strong> Considere criar um novo quadro de visão para
+                o próximo ano, construindo sobre suas experiências e sonhando ainda maior.
               </p>
 
               <p style="margin-top: 30px;">
-                Wishing you continued success and growth,<br>
-                <strong>The Goals Vision Board Team</strong>
+                Desejamos sucesso e crescimento contínuo,<br>
+                <strong>Equipe Quadro de Metas</strong>
               </p>
             </div>
 
             <div class="footer">
-              <p>This email was sent because you created a vision board on our platform one year ago.</p>
-              <p>© ${new Date().getFullYear()} Goals Vision Board. All rights reserved.</p>
+              <p>Este e-mail foi enviado porque você criou um quadro de visão em nossa plataforma há um ano.</p>
+              <p>© ${new Date().getFullYear()} Quadro de Metas. Todos os direitos reservados.</p>
             </div>
           </body>
         </html>
