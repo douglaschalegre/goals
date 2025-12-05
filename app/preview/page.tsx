@@ -3,11 +3,16 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { GoalsProvider, useGoals } from "@/lib/goals-context";
-import PreviewBoard from "@/components/preview/PreviewBoard";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft } from "lucide-react";
 import BottomNav from "@/components/ui/BottomNav";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 // Export features removed
 
 function PreviewPageContent() {
@@ -15,6 +20,7 @@ function PreviewPageContent() {
   const { kanbanData } = useGoals();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [variant, setVariant] = useState<"poster" | "gallery">("poster");
+  const [isContactOpen, setIsContactOpen] = useState(false);
 
   const handleSubmit = async (contactData: {
     email: string;
@@ -49,8 +55,8 @@ function PreviewPageContent() {
 
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark">
-      <header className="sticky top-0 z-10 bg-background-light/80 px-4 py-3 backdrop-blur-sm dark:bg-background-dark/80 border-b border-zinc-200 dark:border-zinc-800">
-        <div className="max-w-7xl mx-auto grid grid-cols-3 items-center">
+      <header className="sticky top-0 z-10 bg-background-light/80 px-4 py-2 backdrop-blur-sm dark:bg-background-dark/80 border-b border-zinc-200 dark:border-zinc-800">
+        <div className="max-w-7xl mx-auto grid grid-cols-3 items-center w-full">
           <div className="flex h-12 w-12 items-center justify-start">
             <button
               aria-label="Voltar"
@@ -60,10 +66,9 @@ function PreviewPageContent() {
               <ChevronLeft className="h-6 w-6 text-zinc-900 dark:text-white" />
             </button>
           </div>
-          <h1 className="text-center text-lg font-bold tracking-tight text-zinc-900 dark:text-white">
+          <h1 className="text-center w-full text-lg font-bold tracking-tight text-zinc-900 dark:text-white">
             Prévia &amp; Pagamento
           </h1>
-          <div className="flex h-12 w-12 items-center justify-end" />
         </div>
       </header>
 
@@ -73,13 +78,6 @@ function PreviewPageContent() {
             <h2 className="text-[22px] font-bold leading-tight tracking-tight text-zinc-900 dark:text-white">
               Meu Quadro de Metas {new Date().getFullYear()}
             </h2>
-            <Button
-              variant="outline"
-              onClick={() => router.push("/create")}
-              className="rounded-full"
-            >
-              Editar
-            </Button>
           </div>
         </section>
 
@@ -177,21 +175,23 @@ function PreviewPageContent() {
           </div>
         </section>
 
-        <section className="mt-8 max-w-2xl mx-auto">
-          <ContactForm onSubmit={handleSubmit} isSubmitting={isSubmitting} />
-        </section>
+        {/* Contact form moved to modal */}
       </main>
 
       <div className="fixed bottom-0 left-0 right-0 border-t border-zinc-200 bg-background-light px-4 pb-6 pt-4 dark:border-zinc-800 dark:bg-background-dark">
         <Button
           className="w-full rounded-full bg-primary py-6 text-lg font-bold"
-          onClick={() =>
-            alert("Preencha seus dados acima para continuar ao pagamento.")
-          }
+          onClick={() => setIsContactOpen(true)}
         >
           Pagar R$ 5
         </Button>
       </div>
+
+      <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
+        <DialogContent className="bg-transparent border-0">
+          <ContactForm onSubmit={handleSubmit} isSubmitting={isSubmitting} />
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
