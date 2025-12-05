@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { PaymentQRCode } from "@/components/payment/PaymentQRCode";
 import { Button } from "@/components/ui/button";
 import BottomNav from "@/components/ui/BottomNav";
+import { toast } from "sonner";
 
 interface PaymentData {
   qrCode: string;
@@ -72,13 +73,13 @@ export default function PaymentPage({
       if (paid) {
         router.push("/success");
       } else {
-        alert(
+        toast.error(
           "Pagamento ainda não recebido. Por favor, complete o pagamento e tente novamente."
         );
       }
     } catch (err) {
       console.error("Payment status check error:", err);
-      alert(
+      toast.error(
         "Falha ao verificar status do pagamento. Por favor, tente novamente."
       );
     } finally {

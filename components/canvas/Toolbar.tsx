@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/dialog";
 import { CategoryPicker } from "@/components/shared/CategoryPicker";
 import type { GoalCategory } from "@/types/goals";
+import { toast } from "sonner";
 
 export function Toolbar() {
   const { addImageElement, addTextElement } = useCanvas();
@@ -50,7 +51,7 @@ export function Toolbar() {
       setSelectedCategory(undefined);
     } catch (error) {
       console.error("Failed to upload image:", error);
-      alert("Failed to upload image. Please try again.");
+      toast.error("Failed to upload image. Please try again.");
     } finally {
       setIsUploading(false);
       if (fileInputRef.current) {

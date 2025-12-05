@@ -7,6 +7,7 @@ import { ContactForm } from "@/components/forms/ContactForm";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft } from "lucide-react";
 import BottomNav from "@/components/ui/BottomNav";
+import { toast } from "sonner";
 // Using a lightweight custom modal to avoid hydration issues
 // Export features removed
 
@@ -22,7 +23,7 @@ function PreviewPageContent() {
     name?: string;
   }) => {
     if (kanbanData.goals.length === 0) {
-      alert("Por favor, adicione pelo menos uma meta antes de enviar.");
+      toast.error("Por favor, adicione pelo menos uma meta antes de enviar.");
       return;
     }
 
@@ -42,7 +43,7 @@ function PreviewPageContent() {
       router.push(`/payment/${submissionId}`);
     } catch (error) {
       console.error("Submission error:", error);
-      alert("Falha ao enviar. Por favor, tente novamente.");
+      toast.error("Falha ao enviar. Por favor, tente novamente.");
     } finally {
       setIsSubmitting(false);
     }
