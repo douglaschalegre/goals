@@ -136,21 +136,21 @@ function CreatePageContent() {
   };
 
   return (
-    <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+    <div className="relative flex min-h-screen w-full flex-col">
       {/* Header */}
-      <header className="sticky top-0 z-10 flex items-center justify-between bg-background-light/80 px-4 py-3 backdrop-blur-sm dark:bg-background-dark/80">
-        <div className="flex h-12 w-12 items-center justify-start">
-          <Goal className="text-3xl text-zinc-900 dark:text-white" />
+      <header className="sticky top-0 z-50 flex items-center justify-between bg-background-light/95 px-4 py-2 backdrop-blur-sm dark:bg-background-dark/95 border-b border-zinc-200 dark:border-zinc-800">
+        <div className="flex h-8 w-8 items-center justify-start">
+          <Goal className="text-2xl text-zinc-900 dark:text-white" />
         </div>
-        <h1 className="flex-1 text-center text-lg font-bold tracking-tight text-zinc-900 dark:text-white">
+        <h1 className="flex-1 text-center text-base font-bold tracking-tight text-zinc-900 dark:text-white">
           Meu Quadro de Metas {new Date().getFullYear() + 1}
         </h1>
-        <div className="flex h-12 w-12 items-center justify-end">
+        <div className="flex h-8 w-8 items-center justify-end">
           <button
             onClick={() => setIsAddModalOpen(true)}
-            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-primary/20 text-primary"
+            className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-primary text-white hover:bg-primary/90 transition-colors"
           >
-            <Plus className="text-2xl" />
+            <Plus className="h-5 w-5" />
           </button>
         </div>
       </header>

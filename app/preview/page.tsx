@@ -50,25 +50,25 @@ function PreviewPageContent() {
   };
 
   return (
-    <div className="min-h-screen bg-background-light dark:bg-background-dark">
-      <header className="sticky top-0 z-10 bg-background-light/80 px-4 py-2 backdrop-blur-sm dark:bg-background-dark/80 border-b border-zinc-200 dark:border-zinc-800">
+    <div className="min-h-screen bg-background-light dark:bg-background-dark pb-10">
+      <header className="sticky top-0 z-50 bg-background-light/95 px-4 py-2 backdrop-blur-sm dark:bg-background-dark/95 border-b border-zinc-200 dark:border-zinc-800">
         <div className="max-w-7xl mx-auto grid grid-cols-3 items-center w-full">
-          <div className="flex h-12 w-12 items-center justify-start">
+          <div className="flex h-8 w-8 items-center justify-start">
             <button
               aria-label="Voltar"
-              className="flex h-10 w-10 items-center justify-center rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800"
+              className="flex h-8 w-8 items-center justify-center rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800"
               onClick={() => router.push("/create")}
             >
-              <ChevronLeft className="h-6 w-6 text-zinc-900 dark:text-white" />
+              <ChevronLeft className="h-5 w-5 text-zinc-900 dark:text-white" />
             </button>
           </div>
-          <h1 className="text-center w-full text-lg font-bold tracking-tight text-zinc-900 dark:text-white">
-            Prévia &amp; Pagamento
+          <h1 className="text-center w-full text-sm font-bold tracking-tight text-zinc-900 dark:text-white">
+            Prévia
           </h1>
         </div>
       </header>
 
-      <main className="flex-grow px-4 pb-28">
+      <main className="flex-grow px-4">
         <section className="mt-5 max-w-7xl mx-auto">
           <div className="flex items-center justify-between">
             <h2 className="text-[22px] font-bold leading-tight tracking-tight text-zinc-900 dark:text-white">
@@ -171,17 +171,18 @@ function PreviewPageContent() {
           </div>
         </section>
 
-        {/* Contact form moved to modal */}
+        {/* Payment CTA */}
+        <section className="mt-8 max-w-2xl mx-auto mb-20">
+          <Button
+            className="w-full rounded-md bg-primary py-6 text-lg font-bold shadow-lg"
+            onClick={() => setIsContactOpen(true)}
+          >
+            Pagar R$ 4.99
+          </Button>
+        </section>
       </main>
 
-      <div className="fixed bottom-0 left-0 right-0 border-t border-zinc-200 bg-background-light px-4 pb-6 pt-4 dark:border-zinc-800 dark:bg-background-dark">
-        <Button
-          className="w-full rounded-full bg-primary py-6 text-lg font-bold"
-          onClick={() => setIsContactOpen(true)}
-        >
-          Pagar R$ 4.99
-        </Button>
-      </div>
+      <BottomNav />
 
       {isContactOpen && (
         <div
