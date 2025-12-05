@@ -62,7 +62,9 @@ export default function SuccessPage() {
             Quer criar outro Quadro de metas? Comece um novo a qualquer momento!
           </p>
           <Link href="/">
-            <Button size="lg">← Voltar para Início</Button>
+            <Button size="lg" className="m-4">
+              Voltar para Início
+            </Button>
           </Link>
         </div>
       </div>

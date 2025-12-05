@@ -25,7 +25,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
             <Link href="/create">
               <Button size="lg" className="text-lg px-8 py-6">
-                Comece a Criar Seu Quadro de metas →
+                Comece a Criar Seu Quadro de metas
               </Button>
             </Link>
           </div>
@@ -172,7 +172,11 @@ export default function Home() {
             suas metas.
           </p>
           <Link href="/create">
-            <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
+            <Button
+              size="lg"
+              variant="secondary"
+              className="text-lg px-8 py-6 m-4"
+            >
               Crie Seu Quadro de metas Agora
             </Button>
           </Link>
