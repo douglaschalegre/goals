@@ -55,11 +55,12 @@ export function PaymentQRCode({ qrCodeBase64, qrCode, amount, expiresAt }: Payme
         <div className="flex justify-center">
           <div className="border-4 border-gray-200 rounded-lg p-4 bg-white">
             <Image
-              src={`data:image/png;base64,${qrCodeBase64}`}
+              src={qrCodeBase64}
               alt="PIX QR Code"
               width={256}
               height={256}
               className="w-64 h-64"
+              unoptimized
             />
           </div>
         </div>

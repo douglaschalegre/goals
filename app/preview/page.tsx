@@ -115,7 +115,7 @@ function PreviewPageContent() {
                   Lembrete Anual
                 </h3>
                 <p className="font-semibold text-zinc-900 dark:text-white">
-                  R$ 5{" "}
+                  R$ 4.99{" "}
                   <span className="font-normal text-zinc-500 dark:text-zinc-400">
                     (pagamento único)
                   </span>
@@ -178,7 +178,7 @@ function PreviewPageContent() {
           className="w-full rounded-full bg-primary py-6 text-lg font-bold"
           onClick={() => setIsContactOpen(true)}
         >
-          Pagar R$ 5
+          Pagar R$ 4.99
         </Button>
       </div>
 

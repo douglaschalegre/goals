@@ -51,12 +51,21 @@ export async function createPixQRCode(
       errorText = await response.text();
     }
     console.error("Abacate Pay API error:", response.status, errorText);
-    throw new Error(`Failed to create PIX QR code (status ${response.status})`);
+    throw new Error(`Failed to create PIX QR code (status ${response.status}): ${errorText}`);
   }
 
   const json = await response.json();
+  console.log("Abacate Pay response:", JSON.stringify(json, null, 2));
+
   // Normalize to expected PixQRCodeResponse shape
   const data = json.data ?? json;
+
+  // Validate response has required fields
+  if (!data.id || !data.brCode || !data.brCodeBase64) {
+    console.error("Invalid Abacate Pay response:", json);
+    throw new Error("Invalid response from Abacate Pay API - missing required fields");
+  }
+
   return {
     id: data.id,
     brCode: data.brCode,
