@@ -30,9 +30,13 @@ export async function GET(request: NextRequest) {
     return NextResponse.json(paymentStatus);
   } catch (error) {
     console.error("Payment status check error:", error);
+    const message = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
-      { error: "Failed to check payment status" },
+      { error: "Failed to check payment status", message },
       { status: 500 }
     );
   }
 }
+
+// Ensure Node runtime for server-side fetch and env access
+export const runtime = "nodejs";

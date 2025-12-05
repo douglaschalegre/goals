@@ -46,17 +46,21 @@ export async function POST(request: NextRequest) {
     `).run(pixResponse.id, DEFAULT_AMOUNT / 100, submissionId);
 
     return NextResponse.json({
-      qrCode: pixResponse.qrCode,
-      qrCodeBase64: pixResponse.qrCodeBase64,
+      qrCode: pixResponse.brCode,
+      qrCodeBase64: pixResponse.brCodeBase64,
       amount: DEFAULT_AMOUNT,
       expiresAt: pixResponse.expiresAt,
       paymentId: pixResponse.id,
     });
   } catch (error) {
     console.error("Payment creation error:", error);
+    const message = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
-      { error: "Failed to create payment" },
+      { error: "Failed to create payment", message },
       { status: 500 }
     );
   }
 }
+
+// Ensure Node runtime for server-side fetch and env access
+export const runtime = "nodejs";
